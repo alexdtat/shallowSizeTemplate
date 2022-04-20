@@ -1,6 +1,18 @@
 package spbu.kotlin.shallow.plugin.sizes
 
-import org.jetbrains.kotlin.ir.types.*
+import org.jetbrains.kotlin.ir.types.IrType
+import org.jetbrains.kotlin.ir.types.isBoolean
+import org.jetbrains.kotlin.ir.types.isByte
+import org.jetbrains.kotlin.ir.types.isChar
+import org.jetbrains.kotlin.ir.types.isDouble
+import org.jetbrains.kotlin.ir.types.isFloat
+import org.jetbrains.kotlin.ir.types.isInt
+import org.jetbrains.kotlin.ir.types.isLong
+import org.jetbrains.kotlin.ir.types.isShort
+import org.jetbrains.kotlin.ir.types.isUByte
+import org.jetbrains.kotlin.ir.types.isULong
+import org.jetbrains.kotlin.ir.types.isUShort
+import org.jetbrains.kotlin.ir.types.isUnit
 
 object ByteSizes {
     const val BOOLEAN = 1
