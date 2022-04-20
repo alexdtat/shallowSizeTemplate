@@ -8,7 +8,7 @@ dependencies {
     implementation("org.junit.jupiter:junit-jupiter:5.8.2")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.5.20")
 }
 
 tasks.compileKotlin {
