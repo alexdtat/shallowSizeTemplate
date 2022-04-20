@@ -12,6 +12,7 @@ import org.jetbrains.kotlin.ir.builders.irReturn
 import org.jetbrains.kotlin.ir.declarations.IrSimpleFunction
 import org.jetbrains.kotlin.ir.util.functions
 import org.jetbrains.kotlin.ir.util.properties
+import spbu.kotlin.shallow.plugin.sizes.byteSize
 
 const val FUNCTION_NAME = "shallowSize"
 
@@ -25,13 +26,15 @@ val Meta.GenerateShallowSize: CliPlugin
             classDeclaration(this, { element.isData() }) { declaration ->
                 Transform.replace(
                     replacing = declaration.element,
-                    newDeclaration = """
+                    newDeclaration =
+                    """
                             |$`@annotations` $visibility $kind $name $`(typeParameters)` $`(params)` $superTypes {
                             |   $body
                             |   fun $FUNCTION_NAME(): Int {
                             |       throw NotImplementedError("shallowSize function should be implemented")
                             |   }
-                            | } """.trimIndent().`class`
+                            | } 
+                    """.trimIndent().`class`
                 )
             },
             irClass { clazz ->

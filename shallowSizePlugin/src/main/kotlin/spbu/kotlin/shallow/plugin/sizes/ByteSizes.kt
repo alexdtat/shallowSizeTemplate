@@ -1,8 +1,8 @@
-package spbu.kotlin.shallow.plugin
+package spbu.kotlin.shallow.plugin.sizes
 
 import org.jetbrains.kotlin.ir.types.*
 
-object ByteSizesOfTypes {
+object ByteSizes {
     const val BOOLEAN = 1
     const val UNIT = 8
     const val DEFAULT = 8
@@ -18,7 +18,7 @@ fun IrType.byteSize() = when {
     isLong() || isULong() -> Long.SIZE_BYTES
     isFloat() -> Float.SIZE_BYTES
     isDouble() -> Double.SIZE_BYTES
-    isBoolean() -> ByteSizesOfTypes.BOOLEAN
-    isUnit() -> ByteSizesOfTypes.UNIT
-    else -> ByteSizesOfTypes.DEFAULT
+    isBoolean() -> ByteSizes.BOOLEAN
+    isUnit() -> ByteSizes.UNIT
+    else -> ByteSizes.DEFAULT
 }

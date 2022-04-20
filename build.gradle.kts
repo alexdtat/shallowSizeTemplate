@@ -5,7 +5,7 @@ val jvmTargetVersion: String by project
 plugins {
     kotlin("jvm")
     java
-    id("io.gitlab.arturbosch.detekt").version("1.20.0")
+    id("io.gitlab.arturbosch.detekt") version "1.20.0"
 }
 
 group = "spbu.kotlin.class.shallowSize"
@@ -22,6 +22,7 @@ dependencies {
 detekt {
     source = files("shallowSizePlugin/src/main/kotlin", "shallowSizePluginTest/src/test/kotlin")
     autoCorrect = true
+    parallel = true
 }
 
 allprojects {
