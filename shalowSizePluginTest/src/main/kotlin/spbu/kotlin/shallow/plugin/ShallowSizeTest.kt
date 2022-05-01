@@ -5,7 +5,6 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 
-
 const val DEFAULT_SIZE = 8
 const val BOOLEAN_SIZE = 1
 const val FUNCTION_NAME = "shallowSize"

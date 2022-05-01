@@ -16,9 +16,8 @@ import spbu.kotlin.shallow.plugin.sizes.byteSize
 
 const val FUNCTION_NAME = "shallowSize"
 
-fun IrSimpleFunction.isShallowSizeFunction(): Boolean {
-    return this.name.toString() == FUNCTION_NAME && this.valueParameters.isEmpty()
-}
+fun IrSimpleFunction.isShallowSizeFunction(): Boolean =
+    this.name.toString() == FUNCTION_NAME && this.valueParameters.isEmpty()
 
 val Meta.GenerateShallowSize: CliPlugin
     get() = "Generate shallowSize method" {
@@ -31,7 +30,7 @@ val Meta.GenerateShallowSize: CliPlugin
                             |$`@annotations` $visibility $kind $name $`(typeParameters)` $`(params)` $superTypes {
                             |   $body
                             |   fun $FUNCTION_NAME(): Int {
-                            |       throw NotImplementedError("shallowSize function should be implemented")
+                            |       throw NotImplementedError("shallowSize function is not implemented yet")
                             |   }
                             | } 
                     """.trimIndent().`class`
