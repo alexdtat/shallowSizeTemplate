@@ -1,0 +1,41 @@
+name: simple CI
+on: [ push, pull_request ]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Run build
+        run: ./gradlew build
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Run tests
+        run: ./gradlew test
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v3
+        with:
+          name: Test report
+          path: shalowSizePluginTest/build/reports/tests/test
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run detekt
+        run: ./gradlew detekt
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Detekt report
+          path: build/reports/detekt/detekt.html
